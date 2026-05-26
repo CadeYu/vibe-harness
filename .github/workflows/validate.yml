@@ -1,0 +1,41 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check shell syntax
+        run: |
+          sh -n scripts/audit.sh
+          sh -n scripts/install.sh
+          sh -n templates/base/scripts/check.sh
+          sh -n templates/base/scripts/verify.sh
+
+      - name: Run script tests
+        run: |
+          sh tests/test_audit.sh
+          sh tests/test_install.sh
+
+      - name: Run tiny example checks
+        run: |
+          cd examples/tiny-python-cli
+          ./scripts/check.sh
+
+      - name: Scan unfinished markers
+        run: |
+          ! rg -n "TB[D]|TO[D]O|FIXM[E]|placeholde[r]|coming soo[n]" README.md AGENTS.md templates prompts skills docs/*.md examples scripts tests
