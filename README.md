@@ -148,19 +148,6 @@ cd examples/tiny-python-cli
 - check/verify scripts
 - mistake ratchet for missing issue behavior
 
-## 面试用法
-
-现场 vibe coding 时可以这样开场：
-
-> 我不是直接让 agent 写代码。我会先给它一个小型 harness：context、constraints、sensors、review 和 mistake ratchet。
-
-然后展示主循环：
-
-```text
-Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
-```
-
-这能说明你不是在随机生成代码，而是在构建一个可验证的软件生产循环。
 
 ## License
 
