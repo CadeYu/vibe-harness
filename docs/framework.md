@@ -1,8 +1,8 @@
-# Framework
+# 框架
 
 Vibe Harness 有五层。
 
-## Context Layer
+## 上下文层
 
 相关文件：
 
@@ -19,7 +19,7 @@ Vibe Harness 有五层。
 - 暴露架构边界
 - 把 session 状态保存在 repo，而不是聊天窗口
 
-## Workflow Layer
+## 工作流层
 
 相关文件：
 
@@ -35,16 +35,20 @@ Vibe Harness 有五层。
 - 让每一步开发动作可重复
 - 减少模糊指令
 
-## Verification Layer
+## Sensor 层
 
 相关文件：
 
 - `scripts/audit.sh`
 - `scripts/install.sh`
+- `scripts/check-consistency.sh`
 - `scripts/check.sh`
 - `scripts/verify.sh`
 - project tests
 - manual QA checklists
+- contract checks
+- migration checks
+- smoke tests
 
 作用：
 
@@ -53,7 +57,9 @@ Vibe Harness 有五层。
 - 给 agent 和人类一个稳定命令入口
 - 降低安装和审计摩擦
 
-## Template Sizes
+更完整的 sensor 分类见 `docs/sensors.md`。后端项目尤其要关注 contract、data、permission 和 runtime invariant。
+
+## 模板尺寸
 
 Vibe Harness 提供三种 additive size：
 
@@ -75,7 +81,7 @@ Vibe Harness 提供三种 additive size：
 ./scripts/audit.sh /path/to/project
 ```
 
-## Ratchet Layer
+## Ratchet 层
 
 相关文件：
 
@@ -93,7 +99,7 @@ Vibe Harness 提供三种 additive size：
 - 把失败转成版本化项目知识
 - 持续提高项目对错误的敏感度
 
-## Skills Layer
+## Skill 层
 
 相关文件：
 
@@ -108,3 +114,20 @@ Vibe Harness 提供三种 additive size：
 - 提供可复用 agent operating procedures
 - 让不同项目里的 agent 行为更一致
 - 把主循环变成可以调用的能力
+
+## 一致性层
+
+相关文件：
+
+- `scripts/check-consistency.sh`
+- `tests/test_consistency.sh`
+- `.github/workflows/validate.yml`
+
+作用：
+
+- 防止 README 列出的 prompts 和实际文件不一致。
+- 防止 `docs/skills.md` 漏列新增 skill。
+- 防止 `docs/examples.md` 漏列新增 example。
+- 确保核心 framework docs 始终存在。
+
+这层来自 harness engineering 的一个重要判断：文档不是写完就结束，文档之间也需要 sensor。

@@ -1,17 +1,16 @@
-# Architecture Context
+# 架构上下文
 
-## System Shape
+## 系统形态
 
 `tiny_issues.core` 拥有 domain behavior。`tiny_issues.cli` 只负责展示一条 happy path。
 
-## Module Boundaries
+## 模块边界
 
-| Module | Responsibility | Must Not Do |
+| 模块 | 职责 | 禁止事项 |
 | --- | --- | --- |
-| `core.py` | Own project and issue behavior. | Print CLI output. |
-| `cli.py` | Present a tiny demo flow. | Own domain rules. |
+| `core.py` | 拥有 project 和 issue 行为。 | 打印 CLI 输出。 |
+| `cli.py` | 展示一个很小的 demo flow。 | 拥有 domain rules。 |
 
-## Testing Strategy
+## 测试策略
 
 `tests/test_core.py` 覆盖 domain behavior 和 missing issue failure。
-

@@ -1,16 +1,15 @@
-# Project Status
+# 项目状态
 
-## Current State
+## 当前状态
 
 记录当前可用状态。
 
-## Commands Run
+## 已运行命令
 
-| Command | Result |
+| 命令 | 结果 |
 | --- | --- |
-| `./scripts/check.sh` | Not run |
+| `./scripts/check.sh` | 未运行 |
 
-## Next Action
+## 下一步
 
 写下下一步最小动作。
-

@@ -1,23 +1,22 @@
-# Summary
+# 摘要
 
-Describe what changed and why.
+说明改了什么，以及为什么改。
 
-## Verification
+## 验证
 
-List commands run and results:
+列出运行过的命令和结果：
 
 ```text
 
 ```
 
-## Harness Impact
+## Harness 影响
 
-- [ ] Context docs still point to the right files.
-- [ ] Prompts and skills remain consistent.
-- [ ] Scripts still pass syntax checks.
-- [ ] Mistake ratchet behavior is preserved or improved.
+- [ ] 上下文文档仍指向正确文件。
+- [ ] Prompts 和 skills 仍保持一致。
+- [ ] 脚本仍通过语法检查。
+- [ ] Mistake ratchet 行为被保留或改进。
 
-## Risks
+## 风险
 
-Describe known risks or follow-up work.
-
+说明已知风险或后续工作。

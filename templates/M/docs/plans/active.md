@@ -1,24 +1,24 @@
-# Active Plan
+# 当前计划
 
-## Objective
+## 目标
 
 写下当前任务。
 
-## Scope
+## 范围
 
-### In Scope
+### 范围内
 
 - 当前包含的行为或文件。
 
-### Out of Scope
+### 范围外
 
 - 当前不碰的相邻工作。
 
-## Acceptance Criteria
+## 验收标准
 
 - 每项都必须可验证。
 
-## Verification Plan
+## 验证 Plan
 
 ```sh
 ./scripts/check.sh

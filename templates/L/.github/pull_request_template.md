@@ -1,21 +1,20 @@
-# Summary
+# 摘要
 
-Describe the change and why it is safe.
+说明改了什么，以及为什么安全。
 
-## Verification
+## 验证
 
 ```text
 
 ```
 
-## Harness Impact
+## Harness 影响
 
-- [ ] Product docs updated if behavior changed.
-- [ ] Architecture docs or ADR updated if boundaries changed.
-- [ ] Mistake log updated if this fixes a repeated failure.
-- [ ] Status updated for handoff.
+- [ ] 行为变化时已更新 product docs。
+- [ ] 架构边界变化时已更新 architecture docs 或 ADR。
+- [ ] 修复重复失败时已更新 mistake log。
+- [ ] 已为 handoff 更新 status。
 
-## Risks
+## 风险
 
-List known risks or rollout notes.
-
+说明已知风险或发布备注。

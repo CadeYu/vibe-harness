@@ -7,7 +7,7 @@ description: Use before ending a session, switching agents, compacting context, 
 
 把有用项目状态保存在 chat context 之外。
 
-## Trigger
+## 触发时机
 
 以下情况使用这个 skill：
 
@@ -16,7 +16,7 @@ description: Use before ending a session, switching agents, compacting context, 
 - another agent or human will continue
 - the worktree has meaningful incomplete work
 
-## Required Reads
+## 必读材料
 
 - `AGENTS.md`
 - `docs/product.md`
@@ -27,7 +27,7 @@ description: Use before ending a session, switching agents, compacting context, 
 - current changed files or git diff
 - command outputs from the session
 
-## Process
+## 流程
 
 1. 识别 completed work。
 2. 识别 incomplete work。
@@ -37,17 +37,16 @@ description: Use before ending a session, switching agents, compacting context, 
 6. 更新 `docs/status.md`。
 7. 给出 exact next recommended action。
 
-## Outputs
+## 产出
 
-- Updated status
-- Changed files summary
-- Verification evidence
-- Known risks
-- Next action
+- Updated status。
+- Changed files summary。
+- Verification evidence。
+- Known risks。
+- Next action。
 
-## Boundaries
+## 边界
 
 - 如果 worktree dirty，不要声称 clean state。
 - 不要隐藏 failed checks。
 - 不要让未来工作依赖 private chat context。
-

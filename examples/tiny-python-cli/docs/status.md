@@ -1,17 +1,16 @@
-# Project Status
+# 项目状态
 
-## Current State
+## 当前状态
 
-Tiny issue tracker slice is implemented and covered by tests.
+Tiny issue tracker slice 已实现，并且有测试覆盖。
 
-## Commands Run
+## 已运行命令
 
-| Command | Result | Notes |
+| 命令 | 结果 | 备注 |
 | --- | --- | --- |
-| `./scripts/check.sh` | Not run | Update after running. |
-| `./scripts/verify.sh` | Not run | Update after running. |
+| `./scripts/check.sh` | 未运行 | 运行后更新。 |
+| `./scripts/verify.sh` | 未运行 | 运行后更新。 |
 
-## Next Recommended Action
+## 建议下一步
 
-Add status filtering if expanding the example.
-
+如果要扩展示例，下一步可以增加 status filtering。

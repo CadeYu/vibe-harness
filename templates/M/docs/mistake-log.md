@@ -1,28 +1,27 @@
-# Mistake Log
+# 错误记录
 
 把 agent failures 转成 durable guardrails。
 
-## Guardrail Map
+## 护栏映射
 
-| Mistake Type | Guardrail |
+| 错误类型 | 护栏 |
 | --- | --- |
-| Requirement misunderstanding | Update product docs or active plan. |
-| Architecture boundary violation | Update architecture docs or ADR. |
-| Missing edge case | Add test. |
-| Missing verification | Update check or verify script. |
-| Repeated bad pattern | Add lint, script, prompt, or skill rule. |
+| 需求理解错误 | 更新 product docs 或 active plan。 |
+| 架构边界违规 | 更新 architecture docs 或 ADR。 |
+| 漏掉边界条件 | 添加 test。 |
+| 缺少验证 | 更新 check 或 verify script。 |
+| 重复坏模式 | 添加 lint、script、prompt 或 skill rule。 |
 
-## Entry Template
+## 记录模板
 
-### Date
+### 日期
 
 YYYY-MM-DD
 
-### What Happened
+### 发生了什么
 
-### Root Cause
+### 根因
 
-### Guardrail
+### 护栏
 
-### Follow-Up Verification
-
+### 后续验证

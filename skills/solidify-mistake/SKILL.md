@@ -7,7 +7,7 @@ description: Use when an agent failure repeats or reveals a high-signal gap that
 
 把 agent failure 转成最小 durable guardrail。
 
-## Trigger
+## 触发时机
 
 以下情况使用这个 skill：
 
@@ -18,7 +18,7 @@ description: Use when an agent failure repeats or reveals a high-signal gap that
 - verification was skipped or falsely claimed
 - stale context caused wrong work
 
-## Required Reads
+## 必读材料
 
 - `docs/mistake-log.md`
 - `docs/product.md`
@@ -26,7 +26,7 @@ description: Use when an agent failure repeats or reveals a high-signal gap that
 - `docs/status.md`
 - relevant tests, scripts, prompts, or skills
 
-## Process
+## 流程
 
 1. 描述 what happened。
 2. 描述 expected behavior。
@@ -37,7 +37,7 @@ description: Use when an agent failure repeats or reveals a high-signal gap that
 7. 在 `docs/mistake-log.md` 添加 entry。
 8. 定义 follow-up verification。
 
-## Failure Categories
+## 失败分类
 
 - requirement misunderstanding
 - architecture boundary violation
@@ -47,7 +47,7 @@ description: Use when an agent failure repeats or reveals a high-signal gap that
 - unsafe operation
 - stale context
 
-## Guardrail Priority
+## 护栏优先级
 
 选择最轻但有效的 guardrail：
 
@@ -59,17 +59,16 @@ description: Use when an agent failure repeats or reveals a high-signal gap that
 6. ADR update
 7. Skill update
 
-## Outputs
+## 产出
 
-- Failure classification
-- Root cause
-- Guardrail added
-- Mistake log entry
-- Verification step
+- Failure classification。
+- Root cause。
+- Guardrail added。
+- Mistake log entry。
+- Verification step。
 
-## Boundaries
+## 边界
 
 - 不要为每个第一次出现的低影响错误添加 automation。
 - 如果轻量 guardrail 已经有效，不要选择更重的 guardrail。
 - 不要只把 mistake 留在 chat history。
-

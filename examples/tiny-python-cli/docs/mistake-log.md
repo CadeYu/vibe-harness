@@ -1,20 +1,19 @@
-# Mistake Log
+# 错误记录
 
-## Example Entry
+## 示例记录
 
-### Date
+### 日期
 
 2026-05-25
 
-### What Happened
+### 发生了什么
 
-An agent could forget to handle closing a missing issue.
+Agent 可能忘记处理 close missing issue 的失败路径。
 
-### Guardrail
+### 护栏
 
-`tests/test_core.py` includes `test_closing_missing_issue_fails`.
+`tests/test_core.py` 包含 `test_closing_missing_issue_fails`。
 
-### Follow-Up Verification
+### 后续验证
 
-Run `./scripts/check.sh`.
-
+运行 `./scripts/check.sh`。

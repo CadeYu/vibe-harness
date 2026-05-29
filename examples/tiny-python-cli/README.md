@@ -1,4 +1,4 @@
-# Tiny Python CLI Example
+# Tiny Python CLI 示例
 
 这是一个真正可跑的 Vibe Harness example。
 
@@ -8,14 +8,14 @@
 create project -> create issue -> list issues -> close issue
 ```
 
-## Run
+## 运行
 
 ```sh
 ./scripts/check.sh
 ./scripts/verify.sh
 ```
 
-## Harness Artifacts
+## Harness 产物
 
 - `AGENTS.md`
 - `docs/product.md`
@@ -26,7 +26,7 @@ create project -> create issue -> list issues -> close issue
 - `scripts/check.sh`
 - `scripts/verify.sh`
 
-## Ratchet Example
+## Ratchet 示例
 
 `test_closing_missing_issue_fails` 是一个 mistake ratchet：它防止 agent 忘记 missing issue 的失败路径。
 

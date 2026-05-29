@@ -1,8 +1,8 @@
-# Interview Playbook
+# 面试 Playbook
 
 这份 playbook 用于现场 vibe coding 面试。
 
-## Opening Line
+## 开场表达
 
 ```text
 I do not just ask the agent to code. I put a small harness around it: context, constraints, sensors, review, and a ratchet for mistakes.
@@ -12,7 +12,7 @@ I do not just ask the agent to code. I put a small harness around it: context, c
 
 > 我不是直接让 agent 写代码，而是先给它一个小型工程轨道：context、constraints、verification sensors、review 和 mistake ratchet。
 
-## First Five Minutes
+## 前五分钟
 
 先 frame：
 
@@ -28,7 +28,7 @@ I do not just ask the agent to code. I put a small harness around it: context, c
 I want the agent to work against explicit acceptance criteria, not vibes alone.
 ```
 
-## During Implementation
+## 实现过程中
 
 使用主循环：
 
@@ -43,7 +43,7 @@ Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
 - "This failure should become a test, not just a chat note."
 - "I am updating status so another session can resume safely."
 
-## What Interviewers Should See
+## 面试官应该看到什么
 
 面试官应该看到：
 
@@ -53,7 +53,7 @@ Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
 - 你能把失败变成系统改进。
 - 你能解释工程 tradeoffs。
 
-## If the Agent Fails
+## 如果 agent 失败
 
 不要慌。失败本身可以展示 harness 思维。
 
@@ -69,7 +69,7 @@ This is exactly why I keep a mistake ratchet. I will classify the failure, fix t
 - prompt rules
 - skills
 
-## Closing Summary
+## 收尾总结
 
 最后可以这样收束：
 

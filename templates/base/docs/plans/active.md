@@ -1,24 +1,24 @@
-# Active Plan
+# 当前计划
 
-## Objective
+## 目标
 
 用一句话说明当前任务。
 
-## Scope
+## 范围
 
-### In Scope
+### 范围内
 
 - 列出本任务包含的 behavior 或 files。
 
-### Out of Scope
+### 范围外
 
 - 列出不应该顺手改的相邻工作。
 
-## Acceptance Criteria
+## 验收标准
 
 - 每一项都必须 observable and verifiable。
 
-## Implementation Steps
+## 实施步骤
 
 1. 对照 `docs/product.md` 和 `docs/architecture.md` frame change。
 2. 实现最小 vertical slice。
@@ -27,7 +27,7 @@
 5. Review diff。
 6. 更新 `docs/status.md`。
 
-## Verification Plan
+## 验证 Plan
 
 Fast check:
 
@@ -41,7 +41,7 @@ Full verification:
 ./scripts/verify.sh
 ```
 
-## Notes
+## 备注
 
 记录影响本任务的 constraints、decisions 和 open questions。
 

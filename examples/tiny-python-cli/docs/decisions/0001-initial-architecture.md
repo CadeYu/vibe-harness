@@ -1,18 +1,17 @@
-# 0001 Initial Architecture
+# 0001 初始架构
 
-## Status
+## 状态
 
 Accepted
 
-## Context
+## 背景
 
-The example should prove the harness loop without introducing framework noise.
+这个例子应该证明 harness loop，而不是引入额外框架噪音。
 
-## Decision
+## 决策
 
-Use an in-memory Python store and pytest tests.
+使用 in-memory Python store 和标准库 `unittest` tests。
 
-## Consequences
+## 后果
 
-The example is easy to run and intentionally not production-shaped.
-
+这个例子容易运行，并且刻意不做成生产系统形态。

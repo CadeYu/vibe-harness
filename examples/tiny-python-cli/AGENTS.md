@@ -1,8 +1,8 @@
-# Project Agent Instructions
+# 项目 Agent 指令
 
 这是 Vibe Harness 的 runnable tiny example。
 
-## Source of Truth
+## 事实来源
 
 - Product context: `docs/product.md`
 - Architecture: `docs/architecture.md`
@@ -10,7 +10,7 @@
 - Status: `docs/status.md`
 - Mistake log: `docs/mistake-log.md`
 
-## Verification
+## 验证
 
 ```sh
 ./scripts/check.sh

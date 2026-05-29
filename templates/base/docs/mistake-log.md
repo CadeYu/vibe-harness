@@ -1,42 +1,42 @@
-# Mistake Log
+# 错误记录
 
 这个文件用来把 agent failures 转成 durable project guardrails。
 
-## Rule of Thumb
+## 基本规则
 
 第一次错误可以先记录。第二次类似错误应该变成 guardrail。
 
-## Guardrail Map
+## 护栏映射
 
-| Mistake Type | Smallest Useful Guardrail |
+| 错误类型 | 最小有效护栏 |
 | --- | --- |
-| Requirement misunderstanding | 更新 `docs/product.md` 或 active plan。 |
-| Architecture boundary violation | 更新 `docs/architecture.md` 或添加 ADR。 |
-| Missing edge case | 添加或更新 test。 |
-| Missing verification | 更新 `scripts/check.sh` 或 `scripts/verify.sh`。 |
-| Repeated bad pattern | 添加 lint、script check、prompt rule 或 skill rule。 |
-| Unsafe operation | 添加 safety rule 和 command guard。 |
-| Stale context | 更新 `docs/status.md` 和 handoff process。 |
+| 需求理解错误 | 更新 `docs/product.md` 或 active plan。 |
+| 架构边界违规 | 更新 `docs/architecture.md` 或添加 ADR。 |
+| 漏掉边界条件 | 添加或更新 test。 |
+| 缺少验证 | 更新 `scripts/check.sh` 或 `scripts/verify.sh`。 |
+| 重复坏模式 | 添加 lint、script check、prompt rule 或 skill rule。 |
+| 不安全操作 | 添加 safety rule 和 command guard。 |
+| 上下文过期 | 更新 `docs/status.md` 和 handoff process。 |
 
-## Entry Template
+## 记录模板
 
-### Date
+### 日期
 
 YYYY-MM-DD
 
-### What Happened
+### 发生了什么
 
 描述错误行为或 workflow failure。
 
-### Why It Happened
+### 为什么发生
 
 说明缺失的 context、check、清晰需求或架构边界。
 
-### Expected Behavior
+### 预期行为
 
 描述本来应该发生什么。
 
-### Guardrail
+### 护栏
 
 选择最小 durable guardrail：
 
@@ -48,7 +48,6 @@ YYYY-MM-DD
 - ADR update
 - skill update
 
-### Follow-Up Verification
+### 后续验证
 
 描述用哪个 command、test、review step 或 manual check 证明 guardrail 有效。
-

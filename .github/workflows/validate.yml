@@ -23,6 +23,7 @@ jobs:
         run: |
           sh -n scripts/audit.sh
           sh -n scripts/install.sh
+          sh -n scripts/check-consistency.sh
           sh -n templates/base/scripts/check.sh
           sh -n templates/base/scripts/verify.sh
 
@@ -30,6 +31,7 @@ jobs:
         run: |
           sh tests/test_audit.sh
           sh tests/test_install.sh
+          sh tests/test_consistency.sh
 
       - name: Run tiny example checks
         run: |

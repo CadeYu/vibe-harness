@@ -1,4 +1,4 @@
-# Workflow
+# 工作流
 
 日常开发使用这条主循环：
 
@@ -55,6 +55,14 @@ UI or API -> application behavior -> domain rule -> persistence or state -> veri
 ```
 
 结果写入 `docs/status.md`。
+
+不同项目的 verify 重点不同：
+
+- 前端：typecheck、unit/component test、build、关键页面 smoke test。
+- 后端：unit/integration test、contract check、migration check、permission regression、health check。
+- 全栈：API contract、seed data、end-to-end critical path、auth session 和 app startup。
+
+具体 sensor 选择见 `docs/sensors.md`。
 
 ## 4. Review
 

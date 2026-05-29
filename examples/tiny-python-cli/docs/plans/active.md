@@ -1,21 +1,20 @@
-# Active Plan
+# 当前计划
 
-## Objective
+## 目标
 
-Demonstrate one issue tracker vertical slice.
+展示一条 issue tracker vertical slice。
 
-## Acceptance Criteria
+## 验收标准
 
-- Project creation works.
-- Issue creation works.
-- Issue listing works.
-- Issue closing works.
-- Missing issue close is tested.
+- Project creation 可用。
+- Issue creation 可用。
+- Issue listing 可用。
+- Issue closing 可用。
+- Missing issue close 有测试覆盖。
 
-## Verification Plan
+## 验证 Plan
 
 ```sh
 ./scripts/check.sh
 ./scripts/verify.sh
 ```
-

@@ -1,4 +1,4 @@
-# Start Project
+# 启动项目
 
 开始新项目，或把 Vibe Harness 加到已有项目时使用。
 

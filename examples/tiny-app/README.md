@@ -1,22 +1,22 @@
-# Tiny App Walkthrough
+# Tiny App 走查
 
 这个 walkthrough 展示一个小型 issue tracker 如何使用 Vibe Harness。
 
-## Frame
+## Frame 阶段
 
-Product goal:
+产品目标：
 
 ```text
 Users can create a project, create issues inside it, list issues, and close an issue.
 ```
 
-First vertical slice:
+第一条 vertical slice：
 
 ```text
 Create one project -> create one issue -> list issues for the project -> close the issue.
 ```
 
-Acceptance criteria:
+验收标准：
 
 - 可以用 name 创建 project。
 - 可以在 project 内创建 issue。
@@ -24,7 +24,7 @@ Acceptance criteria:
 - 可以 close issue。
 - 这条 slice 有 automated tests。
 
-## Slice
+## Slice 阶段
 
 只让 agent 实现第一条路径：
 
@@ -35,7 +35,7 @@ Add tests for creating, listing, and closing issues.
 Run ./scripts/check.sh.
 ```
 
-## Verify
+## Verify 阶段
 
 运行：
 
@@ -49,7 +49,7 @@ Run ./scripts/check.sh.
 ./scripts/verify.sh
 ```
 
-## Review
+## Review 阶段
 
 使用 `prompts/review-diff.md`。
 
@@ -60,21 +60,21 @@ Run ./scripts/check.sh.
 - invalid issue states 是否处理？
 - agent 是否更新了 `docs/status.md`？
 
-## Ratchet
+## Ratchet 阶段
 
-Example failure:
+示例失败：
 
 ```text
 The agent allowed closing an issue that did not exist.
 ```
 
-Smallest guardrail:
+最小护栏：
 
 ```text
 Add a test for closing a missing issue and document the expected error in docs/product.md.
 ```
 
-## Handoff
+## Handoff 阶段
 
 更新 `docs/status.md`：
 
@@ -91,4 +91,3 @@ No authentication or multi-user access.
 Next recommended action:
 Add issue status filtering.
 ```
-

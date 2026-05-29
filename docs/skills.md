@@ -1,10 +1,10 @@
-# Skills
+# 技能
 
 `skills/` 目录提供可复制的 agent operating procedures。
 
 Prompts 是一次性、可粘贴的指令。Skills 是可复用流程，定义什么时候触发、要读什么、要做什么、产出什么、边界在哪里。
 
-## Included Skills
+## 内置技能
 
 | Skill | 作用 |
 | --- | --- |
@@ -14,13 +14,13 @@ Prompts 是一次性、可粘贴的指令。Skills 是可复用流程，定义�
 | `solidify-mistake` | 把失败转成 durable guardrail。 |
 | `session-handoff` | 在 session 之间保存项目状态。 |
 
-## How to Use
+## 如何使用
 
 如果你的 agent 环境支持 skills，把对应 skill folder 复制进去。
 
 如果不支持，把 `SKILL.md` 当作操作清单使用。
 
-## How to Adapt
+## 如何改造
 
 一个好 skill 应该：
 

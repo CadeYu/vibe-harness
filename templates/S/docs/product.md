@@ -1,14 +1,14 @@
-# Product Context
+# 产品上下文
 
-## Goal
+## 目标
 
 用一句话说明项目目标。
 
-## Non-Goals
+## 非目标
 
 - 列出当前不做的事情。
 
-## Acceptance Criteria
+## 验收标准
 
 - 写出可以验证的完成标准。
 

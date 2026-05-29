@@ -1,41 +1,40 @@
-# User Flows
+# 用户流程
 
 这个文档用来把 frontend、backend 和 persistence 的 product behavior 串起来。
 
-## Flow Template
+## 流程模板
 
-### Flow Name
+### 流程名称
 
-## User Goal
+## 用户目标
 
 描述用户想完成什么。
 
-## Steps
+## 步骤
 
-1. User starts from a known state。
-2. User performs an action。
-3. System validates input。
-4. System persists or reads data。
-5. UI shows the result。
+1. 用户从一个已知状态开始。
+2. 用户执行一个动作。
+3. 系统校验输入。
+4. 系统写入或读取数据。
+5. UI 展示结果。
 
-## Data Touchpoints
+## 数据触点
 
-- Request or command shape
-- Domain operation
-- Persistence operation
-- Response shape
-- UI state update
+- Request 或 command shape。
+- Domain operation。
+- Persistence operation。
+- Response shape。
+- UI state update。
 
-## Failure Modes
+## 失败模式
 
-- Validation failure
-- Authorization failure
-- Network or infrastructure failure
-- Partial completion
+- Validation failure。
+- Authorization failure。
+- Network or infrastructure failure。
+- Partial completion。
 
-## Verification
+## 验证
 
-- Unit tests for domain behavior
-- Integration tests for API and persistence
-- Browser or manual QA for the full path
-
+- Unit tests 覆盖 domain behavior。
+- Integration tests 覆盖 API 和 persistence。
+- Browser 或 manual QA 覆盖完整路径。

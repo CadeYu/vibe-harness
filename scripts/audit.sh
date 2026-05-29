@@ -104,3 +104,7 @@ Level: $level
 Next fix: $next_fix
 EOF
 
+if [ "$TARGET_DIR" = "." ] || [ "$(CDPATH= cd -- "$TARGET_DIR" 2>/dev/null && pwd)" = "$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)" ]; then
+  echo
+  sh "$(dirname -- "$0")/check-consistency.sh"
+fi

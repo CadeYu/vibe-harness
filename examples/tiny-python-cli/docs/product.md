@@ -1,16 +1,16 @@
-# Product Context
+# 产品上下文
 
-## Goal
+## 目标
 
 展示一个最小 issue tracker vertical slice。
 
-## Non-Goals
+## 非目标
 
 - 不做持久化数据库。
 - 不做认证。
 - 不做 Web UI。
 
-## Acceptance Criteria
+## 验收标准
 
 - 可以创建 project。
 - 可以创建 issue。

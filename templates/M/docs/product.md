@@ -1,22 +1,22 @@
-# Product Context
+# 产品上下文
 
-## Goal
+## 目标
 
 描述项目要达成的结果。
 
-## Non-Goals
+## 非目标
 
 - 记录明确不做的范围。
 
-## Users
+## 用户
 
 - 说明 primary user 和目标。
 
-## Core Flows
+## 核心流程
 
 - 描述关键用户路径。
 
-## Acceptance Criteria
+## 验收标准
 
 - 每条 criterion 必须 observable and verifiable。
 

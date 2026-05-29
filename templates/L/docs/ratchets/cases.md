@@ -1,44 +1,43 @@
-# Ratchet Cases
+# Ratchet 案例
 
-## Case 1: Missing Edge Case
+## 案例 1：遗漏边界条件
 
-Failure:
+失败：
 
 ```text
 Agent implemented the happy path but missed empty input.
 ```
 
-Guardrail:
+护栏：
 
 ```text
 Add a regression test for empty input.
 ```
 
-## Case 2: Architecture Boundary Violation
+## 案例 2：架构边界违规
 
-Failure:
+失败：
 
 ```text
 Agent placed display formatting in persistence code.
 ```
 
-Guardrail:
+护栏：
 
 ```text
 Update docs/architecture.md and add review checklist coverage.
 ```
 
-## Case 3: Verification Skipped
+## 案例 3：跳过验证
 
-Failure:
+失败：
 
 ```text
 Agent claimed completion without command evidence.
 ```
 
-Guardrail:
+护栏：
 
 ```text
 Make scripts/check.sh the required completion gate.
 ```
-

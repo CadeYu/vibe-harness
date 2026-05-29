@@ -1,18 +1,18 @@
-# 0001 Initial Architecture
+# 0001 初始架构
 
-## Status
+## 状态
 
 Accepted
 
-## Context
+## 背景
 
 项目需要一个简单且明确的初始架构，支持 AI-assisted iteration。
 
-## Decision
+## 决策
 
 使用清晰 module boundaries，并通过 project-local scripts 验证改动。
 
-## Consequences
+## 后果
 
 - Agent 有稳定上下文。
 - Boundary violations 更容易 review。

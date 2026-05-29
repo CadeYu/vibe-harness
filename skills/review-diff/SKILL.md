@@ -7,7 +7,7 @@ description: Use before claiming completion, merging, or handing off a change.
 
 以 senior engineer 标准 review 当前 diff。
 
-## Trigger
+## 触发时机
 
 以下情况使用这个 skill：
 
@@ -16,7 +16,7 @@ description: Use before claiming completion, merging, or handing off a change.
 - the user asks for review
 - a handoff needs risk assessment
 
-## Required Reads
+## 必读材料
 
 - current diff
 - `docs/product.md`
@@ -25,7 +25,7 @@ description: Use before claiming completion, merging, or handing off a change.
 - relevant tests
 - command outputs if available
 
-## Process
+## 流程
 
 1. 识别本次 change 的 behavioral contract。
 2. 优先检查 correctness issues。
@@ -35,7 +35,7 @@ description: Use before claiming completion, merging, or handing off a change.
 6. Findings first，按 severity 排序。
 7. 如果没有 findings，说明 residual risks 和 verification gaps。
 
-## Finding Format
+## Finding 格式
 
 每个 finding 包含：
 
@@ -45,7 +45,7 @@ description: Use before claiming completion, merging, or handing off a change.
 - impact
 - smallest fix
 
-## Review Focus
+## Review 重点
 
 - correctness bugs
 - missing tests
@@ -58,7 +58,7 @@ description: Use before claiming completion, merging, or handing off a change.
 - unused code
 - unverified completion claims
 
-## Boundaries
+## 边界
 
 - 除非明确要求，review 时不要 rewrite code。
 - 不要把 findings 埋在长 summary 后面。

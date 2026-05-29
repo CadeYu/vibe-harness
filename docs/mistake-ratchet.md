@@ -1,4 +1,4 @@
-# Mistake Ratchet
+# 错误固化
 
 Mistake ratchet 的目标：把 agent failure 转成项目护栏。
 
@@ -6,19 +6,19 @@ Mistake ratchet 的目标：把 agent failure 转成项目护栏。
 
 > 哪个 repo artifact 本来可以阻止它，或者更早暴露它？
 
-## Mistake Map
+## 错误映射
 
-| Mistake | Guardrail |
+| 错误类型 | 护栏 |
 | --- | --- |
-| Requirement misunderstood | 更新 product docs 或 active plan。 |
-| Architecture boundary crossed | 更新 architecture docs 或新增 ADR。 |
-| Edge case missed | 添加 test。 |
-| Verification skipped | 更新 check 或 verify script。 |
-| Repeated bad pattern | 添加 lint、script check、prompt rule 或 skill rule。 |
-| Unsafe operation attempted | 添加 safety rule 和 command guard。 |
-| Context went stale | 更新 status 和 handoff process。 |
+| 需求理解错误 | 更新 product docs 或 active plan。 |
+| 架构边界被穿透 | 更新 architecture docs 或新增 ADR。 |
+| 漏掉边界条件 | 添加 test。 |
+| 跳过验证 | 更新 check 或 verify script。 |
+| 重复坏模式 | 添加 lint、script check、prompt rule 或 skill rule。 |
+| 尝试不安全操作 | 添加 safety rule 和 command guard。 |
+| 上下文过期 | 更新 status 和 handoff process。 |
 
-## Guardrail Order
+## 护栏优先级
 
 优先选择最轻但有效的护栏：
 
@@ -30,35 +30,34 @@ Mistake ratchet 的目标：把 agent failure 转成项目护栏。
 6. ADR update
 7. Skill update
 
-## Example
+## 示例
 
-Failure:
+失败：
 
 ```text
 The agent changed persistence code to fix a UI display bug.
 ```
 
-Root cause:
+根因：
 
 ```text
 The architecture boundary did not clearly say where display formatting belongs.
 ```
 
-Guardrail:
+护栏：
 
 ```text
 Update docs/architecture.md: display formatting belongs in the interface layer unless it is a domain invariant.
 ```
 
-Follow-up:
+后续动作：
 
 ```text
 Review the diff and add a test for the formatting behavior at the interface boundary.
 ```
 
-## When to Automate
+## 何时自动化
 
 第一次低影响错误可以先记录。第二次类似错误，就应该固化成 guardrail。
 
 高影响错误要立刻固化。
-

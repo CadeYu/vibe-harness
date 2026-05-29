@@ -1,4 +1,4 @@
-# Solidify Mistake
+# 固化错误
 
 当 agent failure 需要变成 durable guardrail 时使用。
 

@@ -1,17 +1,17 @@
-# Project Agent Instructions
+# 项目 Agent 指令
 
 本项目使用 Vibe Harness M 级模板。M 级适合公开项目、长期个人项目和 1-3 个 agent 协作。
 
-## Source of Truth
+## 事实来源
 
-- Product intent: `docs/product.md`
-- Architecture boundaries: `docs/architecture.md`
-- Active work: `docs/plans/active.md`
-- Current state: `docs/status.md`
-- Mistake ratchet: `docs/mistake-log.md`
-- Architecture decisions: `docs/decisions/`
+- 产品意图：`docs/product.md`
+- 架构边界：`docs/architecture.md`
+- 当前工作：`docs/plans/active.md`
+- 当前状态：`docs/status.md`
+- 错误固化：`docs/mistake-log.md`
+- 架构决策：`docs/decisions/`
 
-## Rules
+## 工作规则
 
 - 一次只实现一条 thin vertical slice。
 - 改动必须绑定 acceptance criteria。
@@ -20,10 +20,9 @@
 - 涉及 build、integration、persistence 或 public behavior 时运行 `./scripts/verify.sh`。
 - 重复 failure 必须进入 `docs/mistake-log.md`。
 
-## Verification
+## 验证
 
 ```sh
 ./scripts/check.sh
 ./scripts/verify.sh
 ```
-

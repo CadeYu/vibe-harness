@@ -1,4 +1,4 @@
-# Philosophy
+# 理念
 
 Vibe coding 的价值，是把“想法到实现”的距离压短。
 
@@ -6,7 +6,7 @@ Vibe coding 的价值，是把“想法到实现”的距离压短。
 
 Vibe Harness 的核心做法是：**把重要上下文放回 repo，把每一轮 AI coding 变成可验证循环。**
 
-## Core Belief
+## 核心信念
 
 AI coding agent 最适合在这样的项目里工作：
 
@@ -19,7 +19,7 @@ AI coding agent 最适合在这样的项目里工作：
 
 开发者的角色不是逐行替 agent 打字，而是设计一个能让 agent 安全产出的工程回路。
 
-## Harness Engineering
+## Harness 工程
 
 Harness 是围绕 agent 的项目本地系统：
 

@@ -1,29 +1,28 @@
-# Project Status
+# 项目状态
 
-## Current State
+## 当前状态
 
 简要说明当前已经可用的部分。
 
-## Recent Changes
+## 最近变更
 
 - 记录最近有意义的 implementation 或 documentation changes。
 
-## Active Work
+## 当前工作
 
 链接到当前 plan：`docs/plans/active.md`。
 
-## Known Risks
+## 已知风险
 
 - 记录 correctness、security、performance、UX 或 delivery risks。
 
-## Commands Run
+## 已运行命令
 
-| Command | Result | Notes |
+| 命令 | 结果 | 备注 |
 | --- | --- | --- |
-| `./scripts/check.sh` | Not run | 运行后更新。 |
-| `./scripts/verify.sh` | Not run | 运行后更新。 |
+| `./scripts/check.sh` | 未运行 | 运行后更新。 |
+| `./scripts/verify.sh` | 未运行 | 运行后更新。 |
 
-## Next Recommended Action
+## 建议下一步
 
 描述 fresh agent 下一步应该做的小动作。
-

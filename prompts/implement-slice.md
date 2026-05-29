@@ -1,4 +1,4 @@
-# Implement Slice
+# 实现 Slice
 
 实现一条已经 frame 好的 vertical slice 时使用。
 

@@ -22,13 +22,25 @@ Vibe Harness 把这些东西放回 repo：
 - `scripts/` 提供稳定验证入口
 - `mistake-log` 把失败固化成护栏
 
-## The Loop
+## 核心文档
+
+| 文档 | 什么时候读 |
+| --- | --- |
+| `docs/spec.md` | 想理解这个 framework 到底定义了什么。 |
+| `docs/framework.md` | 想理解 context、workflow、verification、ratchet、skills 五层结构。 |
+| `docs/workflow.md` | 日常开发要按哪条 loop 推进。 |
+| `docs/sensors.md` | 要为前端、后端或全栈项目设计检查入口。 |
+| `docs/mistake-ratchet.md` | agent 犯错后要把错误固化成 guardrail。 |
+| `docs/interview-playbook.md` | 准备现场 vibe coding 面试。 |
+| `docs/references.md` | 想知道这个 repo 吸收了哪些外部 harness 思路。 |
+
+## 主循环
 
 ```text
 Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
 ```
 
-| Stage | 作用 |
+| 阶段 | 作用 |
 | --- | --- |
 | Frame | 定义目标、非目标、架构边界和验证方式。 |
 | Slice | 只实现一条可端到端验证的 thin vertical slice。 |
@@ -37,7 +49,7 @@ Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
 | Ratchet | 把重复错误固化成 docs、tests、lint、scripts、prompts、ADR 或 skills。 |
 | Handoff | 把状态写回 repo，让下一轮不依赖隐藏聊天上下文。 |
 
-## Quick Start
+## 快速开始
 
 推荐用 installer：
 
@@ -75,28 +87,30 @@ docs/plans/active.md
 
 日常开发时按这个顺序走：
 
-1. 用 `prompts/implement-slice.md` 实现一条 slice。
-2. 运行 `scripts/check.sh`。
-3. 用 `prompts/review-diff.md` 做 diff review。
-4. 出错时用 `prompts/solidify-mistake.md` 固化错误。
-5. 结束前用 `prompts/session-handoff.md` 更新状态。
+1. 用 `prompts/start-project.md` frame 项目。
+2. 用 `prompts/implement-slice.md` 实现一条 slice。
+3. 运行 `scripts/check.sh`。
+4. 用 `prompts/review-diff.md` 做 diff review。
+5. 出错时用 `prompts/solidify-mistake.md` 固化错误。
+6. 需要中途更新状态时用 `prompts/update-status.md`。
+7. 结束前用 `prompts/session-handoff.md` 更新状态。
 
-## Repository Map
+## 仓库结构
 
 ```text
-scripts              audit/install lightweight tools
+scripts              framework audit/install/check tools
 tests                shell tests for framework scripts
-templates/S          minimal harness for interviews and small projects
-templates/M          default harness for public and long-lived solo projects
-templates/L          team and long-running project extension
+templates/S          minimal harness template
+templates/M          default harness template
+templates/L          long-running project extension
 templates/base       generic starter harness
-templates/frontend   frontend docs and UI review prompt
-templates/backend    API and data model docs
-templates/fullstack  end-to-end user flow docs
+templates/frontend   frontend docs and review prompt
+templates/backend    backend docs and review prompt
+templates/fullstack  fullstack user-flow docs
 prompts              pasteable prompts for AI coding agents
-skills               reusable operating procedures for skill-aware agents
-docs                 framework docs, workflow, and interview playbook
-examples             small walkthroughs and runnable examples
+skills               reusable operating procedures
+docs                 framework docs
+examples             walkthroughs and runnable examples
 ```
 
 ## 选择 S / M / L
@@ -119,7 +133,7 @@ examples             small walkthroughs and runnable examples
 
 目标不是让 AI “更听话”，而是让项目对错误更敏感。
 
-## Skills
+## 技能集合
 
 第一版内置 5 个 skills：
 
@@ -131,7 +145,18 @@ examples             small walkthroughs and runnable examples
 
 如果你的 AI coding 环境支持 skills，可以直接复制对应目录。如果不支持，也可以把 `SKILL.md` 当作操作清单使用。
 
-## Runnable Example
+## Prompt 集合
+
+第一版内置 6 个 prompts：
+
+- `prompts/start-project.md`
+- `prompts/implement-slice.md`
+- `prompts/review-diff.md`
+- `prompts/solidify-mistake.md`
+- `prompts/update-status.md`
+- `prompts/session-handoff.md`
+
+## 可运行例子
 
 `examples/tiny-python-cli` 是一个零第三方依赖的可运行例子：
 
@@ -148,7 +173,21 @@ cd examples/tiny-python-cli
 - check/verify scripts
 - mistake ratchet for missing issue behavior
 
+`examples/session-trace` 展示一次 session 如何留下 prompt、plan、iteration、review、status 和 result 证据。
 
-## License
+## 框架自检
+
+这个 repo 自身也有 harness：
+
+```sh
+sh scripts/check-consistency.sh
+sh tests/test_audit.sh
+sh tests/test_install.sh
+sh tests/test_consistency.sh
+```
+
+`scripts/check-consistency.sh` 会检查 README、skills index、examples index 和核心文档是否对齐，避免 framework 文档逐渐漂移。
+
+## 许可证
 
 MIT
