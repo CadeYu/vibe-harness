@@ -1,66 +1,65 @@
 ---
 name: review-diff
-description: Use before claiming completion, merging, or handing off a change.
+description: 在声称完成、合并或 handoff 某个改动前使用。
 ---
 
-# Review Diff
+# Diff 审查
 
-以 senior engineer 标准 review 当前 diff。
+以高级工程师标准审查当前 diff。
 
 ## 触发时机
 
 以下情况使用这个 skill：
 
-- code or docs were changed
-- a slice is believed to be complete
-- the user asks for review
-- a handoff needs risk assessment
+- 代码或 docs 已发生改动。
+- 某条 slice 被认为已经完成。
+- 用户要求审查。
+- handoff 需要风险评估。
 
 ## 必读材料
 
-- current diff
+- 当前 diff。
 - `docs/product.md`
 - `docs/architecture.md`
 - `docs/plans/active.md`
-- relevant tests
-- command outputs if available
+- 相关 tests。
+- 如果可用，阅读命令输出。
 
 ## 流程
 
-1. 识别本次 change 的 behavioral contract。
-2. 优先检查 correctness issues。
-3. 对照 acceptance criteria 检查 tests。
-4. 对照 `docs/architecture.md` 检查 architecture boundaries。
-5. 检查 docs 和 status 是否 stale。
-6. Findings first，按 severity 排序。
-7. 如果没有 findings，说明 residual risks 和 verification gaps。
+1. 识别本次改动的行为契约。
+2. 优先检查正确性问题。
+3. 对照验收标准检查 tests。
+4. 对照 `docs/architecture.md` 检查架构边界。
+5. 检查 docs 和 status 是否过期。
+6. 先输出问题项，按严重级别排序。
+7. 如果没有问题项，说明剩余风险和验证缺口。
 
-## Finding 格式
+## 问题项格式
 
-每个 finding 包含：
+每个问题项包含：
 
-- severity
-- file path and line when possible
-- issue
-- impact
-- smallest fix
+- 严重级别。
+- 尽量包含文件路径和行号。
+- 问题。
+- 影响。
+- 最小修复方式。
 
 ## Review 重点
 
-- correctness bugs
-- missing tests
-- stale docs
-- boundary violations
-- unsafe operations
-- data model mistakes
-- error handling gaps
-- over-engineering
-- unused code
-- unverified completion claims
+- 正确性 bug。
+- 缺失 tests。
+- 文档过期。
+- 边界违规。
+- 不安全操作。
+- 数据模型错误。
+- 错误处理缺口。
+- 过度设计。
+- 未使用代码。
+- 没有验证证据的完成声明。
 
 ## 边界
 
-- 除非明确要求，review 时不要 rewrite code。
-- 不要把 findings 埋在长 summary 后面。
-- failed checks 未解释清楚前，不要 approve work。
-
+- 除非明确要求，审查时不要重写代码。
+- 不要把问题项埋在长摘要后面。
+- 失败检查未解释清楚前，不要 approve work。

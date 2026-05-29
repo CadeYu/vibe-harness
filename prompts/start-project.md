@@ -3,32 +3,32 @@
 开始新项目，或把 Vibe Harness 加到已有项目时使用。
 
 ```text
-Frame this project before implementation.
+在实现前为这个项目定框。
 
-Inputs:
-- Product idea:
-- Target users:
-- Target stack:
-- Hard constraints:
-- Known non-goals:
-- Success criteria:
+输入：
+- 产品想法：
+- 目标用户：
+- 目标技术栈：
+- 硬约束：
+- 已知非目标：
+- 成功标准：
 
-Tasks:
-1. Read existing repository files if this is an existing project.
-2. Fill or update docs/product.md with goal, non-goals, users, core flows, constraints, and acceptance criteria.
-3. Fill or update docs/architecture.md with module boundaries, dependency direction, data ownership, error handling, and testing strategy.
-4. Fill or update docs/plans/active.md with the first thin vertical slice.
-5. Recommend the fast verification command and full verification command.
-6. Record open questions only when they materially affect implementation correctness.
+任务：
+1. 如果这是已有项目，先阅读现有仓库文件。
+2. 填写或更新 `docs/product.md`，包含目标、非目标、用户、核心流程、约束和验收标准。
+3. 填写或更新 `docs/architecture.md`，包含模块边界、依赖方向、数据归属、错误处理和测试策略。
+4. 填写或更新 `docs/plans/active.md`，定义第一条 thin vertical slice。
+5. 推荐快速验证命令和完整验证命令。
+6. 只记录会实质影响实现正确性的开放问题。
 
-Constraints:
-- Do not implement product code yet.
-- Do not invent broad future scope.
-- Keep the first slice small enough to verify end to end.
+约束：
+- 现在不要实现 product code。
+- 不要发明宽泛的未来范围。
+- 第一条 slice 要足够小，能够 end-to-end verify。
 
-Output:
-- Summary of docs updated
-- First vertical slice
-- Verification plan
-- Open questions that block implementation, if any
+输出：
+- 已更新文档摘要
+- 第一条 vertical slice
+- 验证计划
+- 阻碍实现的开放问题，如果存在
 ```

@@ -1,31 +1,31 @@
-# Diff Review
+# Diff 审查
 
 在声称 slice 完成前使用。
 
 ```text
-Review the current diff as a senior engineer.
+以高级工程师标准审查当前 diff。
 
-Findings first, summary second.
+先输出问题项，再输出摘要。
 
-Focus on:
-- correctness bugs
-- missing tests
-- architecture boundary violations
-- stale documentation
-- unsafe operations
-- data model mistakes
-- error handling gaps
-- over-engineering
-- unused code
-- unverified completion claims
+重点检查：
+- 正确性 bug
+- 缺失 tests
+- 架构边界违规
+- 文档过期
+- 不安全操作
+- 数据模型错误
+- 错误处理缺口
+- 过度设计
+- 未使用代码
+- 没有验证证据的完成声明
 
-Each finding must include:
-- severity
-- file path and line when possible
-- why it matters
-- smallest fix
+每个问题项必须包含：
+- 严重级别
+- 尽量包含文件路径和行号
+- 为什么重要
+- 最小修复方式
 
-If there are no findings, say so clearly and list residual risks or test gaps.
+如果没有问题项，明确说明，并列出剩余风险或测试缺口。
 
-Do not rewrite code unless explicitly asked.
+除非明确要求，不要直接重写代码。
 ```

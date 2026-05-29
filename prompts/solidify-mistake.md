@@ -1,27 +1,27 @@
 # 固化错误
 
-当 agent failure 需要变成 durable guardrail 时使用。
+当 agent 失败需要变成 durable guardrail 时使用。
 
 ```text
-Analyze this failure and convert it into the smallest durable guardrail.
+分析这次失败，并把它转成最小 durable guardrail。
 
-Failure:
-- What happened:
-- Expected behavior:
-- Where it happened:
-- Whether this has happened before:
+失败：
+- 发生了什么：
+- 预期行为：
+- 发生位置：
+- 是否发生过类似问题：
 
-Classify the failure:
-- requirement misunderstanding
-- architecture boundary violation
-- missing edge case
-- missing verification
-- repeated bad pattern
-- unsafe operation
-- stale context
+失败分类：
+- 需求理解错误
+- 架构边界违规
+- 漏掉边界条件
+- 缺少验证
+- 重复坏模式
+- 不安全操作
+- 上下文过期
 
-Choose the smallest guardrail:
-- documentation rule
+选择最小 guardrail：
+- 文档规则
 - test case
 - lint rule
 - script check
@@ -29,16 +29,16 @@ Choose the smallest guardrail:
 - ADR update
 - skill update
 
-Rules:
-- Do not choose a heavier guardrail when a lighter one prevents recurrence.
-- If this is the first low-impact occurrence, log it before adding automation.
-- If this is repeated or high-impact, add a concrete guardrail now.
+规则：
+- 如果轻量 guardrail 已经能防止复发，不要选择更重的 guardrail。
+- 如果这是第一次低影响问题，先记录，再考虑自动化。
+- 如果这是重复问题或高影响问题，现在就添加具体 guardrail。
 
-Output:
-- Failure classification
-- Root cause
-- Chosen guardrail
-- Exact file to update
-- Follow-up verification command or review step
-- Suggested entry for docs/mistake-log.md
+输出：
+- 失败分类
+- 根因
+- 选择的 guardrail
+- 需要更新的具体文件
+- 后续验证命令或 review step
+- 建议写入 `docs/mistake-log.md` 的条目
 ```
