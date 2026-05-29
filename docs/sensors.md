@@ -108,6 +108,19 @@ pnpm test:e2e -- --grep "critical path"
 - `scripts/verify.sh`：更完整，适合公共行为、数据库、部署、集成路径改变时运行。
 - CI：可以更慢，负责跨平台、完整矩阵和安全扫描。
 
+## Sensor Matrix
+
+项目可以在 `docs/sensors.md` 中维护一张 sensor matrix：
+
+| Sensor | 触发时机 | 命令或方式 | 覆盖风险 | 失败后处理 |
+| --- | --- | --- | --- | --- |
+| Fast check | 每条 slice 后。 | `./scripts/check.sh` | 基础语法、lint、unit tests。 | 修复后重跑。 |
+| Full verify | 公共行为、集成、持久化或部署相关改动。 | `./scripts/verify.sh` | build、integration、runtime smoke。 | 修复、更新 status。 |
+| Contract check | API shape 改动。 | OpenAPI diff、protobuf compatibility 或 API tests。 | 调用方不兼容。 | 更新 contract 或兼容层。 |
+| Migration check | schema 或数据迁移改动。 | migration validate。 | 数据丢失、迁移失败。 | 补 migration、rollback 或 recovery plan。 |
+| Permission regression | auth 或权限逻辑改动。 | permission tests。 | 权限回退。 | 补权限测试。 |
+| Diff review | claim completion 前。 | `prompts/dispatch-review.md` | correctness、missing tests、stale docs。 | 修 findings。 |
+
 ## Review prompt 也是 sensor
 
 `prompts/review-diff.md` 不是替代测试，而是补测试看不到的问题：

@@ -1,6 +1,6 @@
 # 框架
 
-Vibe Harness 有五层。
+Vibe Harness 有一组轻量分层机制。
 
 ## 上下文层
 
@@ -59,6 +59,22 @@ Vibe Harness 有五层。
 
 更完整的 sensor 分类见 `docs/sensors.md`。后端项目尤其要关注 contract、data、permission 和 runtime invariant。
 
+## Agent 层
+
+相关文件：
+
+- `docs/agents.md`
+- `docs/orchestration.md`
+- `prompts/dispatch-review.md`
+- `prompts/design-sensors.md`
+
+作用：
+
+- 定义 main agent 和 specialist agents 的边界。
+- 明确什么时候从单 agent 升级到 multi-agent。
+- 把 reviewer、test、architect、sensor agent 的输出约束为 findings、missing tests、boundary risks 和 sensor gaps。
+- 防止 multi-agent 变成无约束并行写代码。
+
 ## 模板尺寸
 
 Vibe Harness 提供三种 additive size：
@@ -67,7 +83,7 @@ Vibe Harness 提供三种 additive size：
 | --- | --- | --- |
 | S | 最小项目/面试现场 | 所有核心机制都有，但文件极少。 |
 | M | 默认推荐 | 加入 architecture、plans、mistake log、ADR 和 full verification。 |
-| L | 团队/长期项目 | 加入 PR rails、CI signal、ratchet cases 和 audit wrapper。 |
+| L | 团队/长期项目 | 加入 multi-agent roles、orchestration、sensor matrix、PR rails、CI signal 和 ratchet cases。 |
 
 安装：
 

@@ -17,10 +17,10 @@ assert_contains() {
 }
 
 assert_contains "$OUTPUT" "Repository Consistency"
-assert_contains "$OUTPUT" "Prompt Index: 6/6"
+assert_contains "$OUTPUT" "Prompt Index: 8/8"
 assert_contains "$OUTPUT" "Skill Index: 5/5"
 assert_contains "$OUTPUT" "Example Index: 3/3"
-assert_contains "$OUTPUT" "Core Docs: 10/10"
+assert_contains "$OUTPUT" "Core Docs: 12/12"
 assert_contains "$AUDIT_OUTPUT" "Repository Consistency"
 
 echo "test_consistency.sh passed"

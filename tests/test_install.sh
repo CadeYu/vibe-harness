@@ -45,6 +45,14 @@ assert_file "$M_TARGET/docs/architecture.md"
 assert_file "$M_TARGET/docs/mistake-log.md"
 assert_file "$M_TARGET/scripts/verify.sh"
 
+L_TARGET="$TMP_DIR/l"
+mkdir -p "$L_TARGET"
+sh "$ROOT_DIR/scripts/install.sh" "$L_TARGET" --size L >/dev/null
+assert_file "$L_TARGET/docs/agents.md"
+assert_file "$L_TARGET/docs/sensors.md"
+assert_file "$L_TARGET/docs/orchestration.md"
+assert_file "$L_TARGET/docs/ratchets/cases.md"
+
 NO_OVERWRITE_TARGET="$TMP_DIR/no-overwrite"
 mkdir -p "$NO_OVERWRITE_TARGET"
 printf '%s\n' "custom" > "$NO_OVERWRITE_TARGET/AGENTS.md"
@@ -56,4 +64,3 @@ assert_contains "$(cat /tmp/vibe-install-out)" "Refusing to overwrite"
 assert_contains "$(cat "$NO_OVERWRITE_TARGET/AGENTS.md")" "custom"
 
 echo "test_install.sh passed"
-

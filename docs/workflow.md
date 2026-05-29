@@ -77,11 +77,22 @@ UI or API -> application behavior -> domain rule -> persistence or state -> veri
 - unsafe operations
 - over-engineering
 
+当 diff 变大、测试缺口明显、架构边界变复杂，或者验证覆盖不足时，使用 `prompts/dispatch-review.md` 分发 specialist review。
+
+specialist agent 的默认职责不是继续实现，而是制造 backpressure：
+
+- Reviewer Agent 找 correctness 和 stale docs。
+- Test Agent 找 missing tests 和 error paths。
+- Architect Agent 找 boundary risks。
+- Sensor Agent 找 verification gaps。
+
 ## 5. Ratchet
 
 如果错误重复出现，或者单次错误影响很大，使用 `prompts/solidify-mistake.md` 或 `skills/solidify-mistake`。
 
 选择最小但有效的 guardrail，不要一上来造重系统。
+
+如果错误暴露的是“项目缺少 sensor”，使用 `prompts/design-sensors.md` 设计 sensor matrix，再决定要更新 docs、scripts、tests 还是 CI。
 
 ## 6. Handoff
 

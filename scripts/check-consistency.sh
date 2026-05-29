@@ -60,11 +60,13 @@ for example in "$ROOT_DIR"/examples/*; do
 done
 
 core_score=0
-core_max=10
+core_max=12
 for file in \
   "docs/spec.md" \
   "docs/framework.md" \
   "docs/workflow.md" \
+  "docs/agents.md" \
+  "docs/orchestration.md" \
   "docs/sensors.md" \
   "docs/mistake-ratchet.md" \
   "docs/skills.md" \

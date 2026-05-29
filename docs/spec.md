@@ -28,6 +28,7 @@ Vibe Harness 的目标是把这些隐性信息放回 repo，让 AI-assisted deve
 | --- | --- |
 | Context | repo 内的产品、架构、计划、状态和决策记录。 |
 | Sensor | 能暴露错误或风险的检查，例如 test、typecheck、contract check、smoke test、review prompt。 |
+| Specialist Agent | 按风险触发的 reviewer、test、architect 或 sensor agent，用来制造独立审查压力。 |
 | Ratchet | 把一次失败转成更持久的 guardrail，让同类错误更难再次发生。 |
 | Skill | 可复用的 agent operating procedure，定义触发条件、读取材料、流程和产出。 |
 | Handoff | 把当前状态写回 repo，让下一轮不依赖私有聊天上下文。 |

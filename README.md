@@ -27,8 +27,10 @@ Vibe Harness 把这些东西放回 repo：
 | 文档 | 什么时候读 |
 | --- | --- |
 | `docs/spec.md` | 想理解这个 framework 到底定义了什么。 |
-| `docs/framework.md` | 想理解 context、workflow、verification、ratchet、skills 五层结构。 |
+| `docs/framework.md` | 想理解 context、workflow、agent、sensor、ratchet、skills 等分层结构。 |
 | `docs/workflow.md` | 日常开发要按哪条 loop 推进。 |
+| `docs/agents.md` | 想设计 multi-agent 角色和触发条件。 |
+| `docs/orchestration.md` | 想决定什么时候单 agent，什么时候 specialist review。 |
 | `docs/sensors.md` | 要为前端、后端或全栈项目设计检查入口。 |
 | `docs/mistake-ratchet.md` | agent 犯错后要把错误固化成 guardrail。 |
 | `docs/interview-playbook.md` | 准备现场 vibe coding 面试。 |
@@ -92,8 +94,10 @@ docs/plans/active.md
 3. 运行 `scripts/check.sh`。
 4. 用 `prompts/review-diff.md` 做 diff review。
 5. 出错时用 `prompts/solidify-mistake.md` 固化错误。
-6. 需要中途更新状态时用 `prompts/update-status.md`。
-7. 结束前用 `prompts/session-handoff.md` 更新状态。
+6. 风险升高时用 `prompts/dispatch-review.md` 分发 specialist review。
+7. 验证覆盖不足时用 `prompts/design-sensors.md` 设计 sensor matrix。
+8. 需要中途更新状态时用 `prompts/update-status.md`。
+9. 结束前用 `prompts/session-handoff.md` 更新状态。
 
 ## 仓库结构
 
@@ -119,7 +123,7 @@ examples             walkthroughs and runnable examples
 | --- | --- | --- |
 | S | 面试现场、个人小项目、刚起步 repo | `AGENTS.md`、product/status docs、`check.sh` |
 | M | 默认推荐，公开项目或长期个人项目 | S + architecture、active plan、mistake log、ADR、`verify.sh` |
-| L | 团队项目、多 agent、长期维护 | M + PR template、CI、ratchet cases、harness audit wrapper |
+| L | 团队项目、多 agent、长期维护 | M + agents、orchestration、sensor matrix、PR template、CI、ratchet cases |
 
 从小开始。需要更强约束时再升级，不要一开始把简单项目压重。
 
@@ -147,8 +151,10 @@ examples             walkthroughs and runnable examples
 
 ## Prompt 集合
 
-第一版内置 6 个 prompts：
+第一版内置 8 个 prompts：
 
+- `prompts/dispatch-review.md`
+- `prompts/design-sensors.md`
 - `prompts/start-project.md`
 - `prompts/implement-slice.md`
 - `prompts/review-diff.md`

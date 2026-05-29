@@ -29,6 +29,7 @@
 
 - 增加 `docs/spec.md`，把 framework 本身定义清楚。
 - 增加 `docs/sensors.md`，把检查从前端 lint 扩展到后端、数据、协议、运行时和安全。
+- 增加 `docs/agents.md` 和 `docs/orchestration.md`，把 multi-agent 约束为按风险触发的 backpressure。
 - 增加 consistency check，让文档索引和实际文件保持一致。
 - 把 mistake ratchet 视为核心机制，而不是复盘笔记。
 
