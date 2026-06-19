@@ -115,6 +115,7 @@ pnpm test:e2e -- --grep "critical path"
 | Sensor | 触发时机 | 命令或方式 | 覆盖风险 | 失败后处理 |
 | --- | --- | --- | --- | --- |
 | Fast check | 每条 slice 后。 | `./scripts/check.sh` | 基础语法、lint、unit tests。 | 修复后重跑。 |
+| Feature state check | 每次更新功能状态后。 | `./scripts/validate-feature-list.sh .` | 多个 active、假 passing、缺少验证步骤。 | 修状态或补 evidence。 |
 | Full verify | 公共行为、集成、持久化或部署相关改动。 | `./scripts/verify.sh` | build、integration、runtime smoke。 | 修复、更新 status。 |
 | Contract check | API shape 改动。 | OpenAPI diff、protobuf compatibility 或 API tests。 | 调用方不兼容。 | 更新 contract 或兼容层。 |
 | Migration check | schema 或数据迁移改动。 | migration validate。 | 数据丢失、迁移失败。 | 补 migration、rollback 或 recovery plan。 |

@@ -7,6 +7,7 @@
 - 产品意图：`docs/product.md`
 - 架构边界：`docs/architecture.md`
 - 当前任务：`docs/plans/active.md`
+- 功能状态：`feature_list.json`
 - 当前状态：`docs/status.md`
 - 错误固化：`docs/mistake-log.md`
 - 架构决策：`docs/decisions/`
@@ -14,18 +15,25 @@
 ## 工作规则
 
 - 一次只实现一条 thin vertical slice。
+- 一次只允许一个 feature 处于 `in_progress`。
 - 改动要小、可审查，并绑定 acceptance criteria。
 - 优先遵循项目已有模式，不要轻易引入新抽象。
+- 开始实现前运行 `./scripts/init-harness.sh`，确认项目可接手。
 - 行为、架构或工作流变化时，同步更新 docs。
 - 非平凡逻辑和用户可见行为需要 tests。
 - 没有运行相关 verification command，不要 claim completion。
+- 没有 evidence，不要把 feature 标成 `passing`。
+- 结束 session 前运行 `./scripts/clean-state.sh`。
 
 ## 验证命令
 
 快速检查：
 
 ```sh
+./scripts/init-harness.sh
 ./scripts/check.sh
+./scripts/validate-feature-list.sh .
+./scripts/clean-state.sh
 ```
 
 完整验证：

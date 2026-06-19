@@ -11,6 +11,7 @@ Vibe Harness 有一组轻量分层机制。
 - `docs/architecture.md`
 - `docs/status.md`
 - `docs/plans/active.md`
+- `feature_list.json`
 - `docs/decisions/`
 
 作用：
@@ -18,6 +19,7 @@ Vibe Harness 有一组轻量分层机制。
 - 显式记录产品意图
 - 暴露架构边界
 - 把 session 状态保存在 repo，而不是聊天窗口
+- 把功能范围、状态和完成证据变成机器可读状态面
 
 ## 工作流层
 
@@ -44,6 +46,9 @@ Vibe Harness 有一组轻量分层机制。
 - `scripts/check-consistency.sh`
 - `scripts/check.sh`
 - `scripts/verify.sh`
+- `scripts/validate-feature-list.sh`
+- `scripts/init-harness.sh`
+- `scripts/clean-state.sh`
 - project tests
 - manual QA checklists
 - contract checks
@@ -56,6 +61,7 @@ Vibe Harness 有一组轻量分层机制。
 - 尽早暴露失败
 - 给 agent 和人类一个稳定命令入口
 - 降低安装和审计摩擦
+- 把初始化和会话收尾变成可执行检查
 
 更完整的 sensor 分类见 `docs/sensors.md`。后端项目尤其要关注 contract、data、permission 和 runtime invariant。
 
@@ -83,7 +89,38 @@ Vibe Harness 提供三种 additive size：
 | --- | --- | --- |
 | S | 最小项目/面试现场 | 所有核心机制都有，但文件极少。 |
 | M | 默认推荐 | 加入 architecture、plans、mistake log、ADR 和 full verification。 |
-| L | 团队/长期项目 | 加入 multi-agent roles、orchestration、sensor matrix、PR rails、CI signal 和 ratchet cases。 |
+| L | 团队/长期项目 | 加入 multi-agent roles、orchestration、sensor matrix、PR rails、CI signal、ratchet cases 和 harness 简化实验。 |
+
+## Scope 层
+
+相关文件：
+
+- `feature_list.json`
+- `docs/feature-list.md`
+- `docs/plans/active.md`
+
+作用：
+
+- 强制一次只有一个 active feature。
+- 要求 `passing` 必须有 evidence。
+- 让 scheduler、reviewer、handoff 都围绕同一个状态机工作。
+- 防止“代码写了不少”被误认为“功能完成”。
+
+## Lifecycle 层
+
+相关文件：
+
+- `scripts/init-harness.sh`
+- `scripts/clean-state.sh`
+- `docs/status.md`
+- `prompts/session-handoff.md`
+
+作用：
+
+- 把初始化从功能实现中分离出来。
+- 让每次 session 开始前先确认项目可运行、可检查、可接手。
+- 让每次 session 结束前留下干净状态。
+- 降低新会话重建上下文的成本。
 
 安装：
 
@@ -147,3 +184,17 @@ Vibe Harness 提供三种 additive size：
 - 确保核心 framework docs 始终存在。
 
 这层来自 harness engineering 的一个重要判断：文档不是写完就结束，文档之间也需要 sensor。
+
+## 质量和 Benchmark 层
+
+相关文件：
+
+- `docs/quality.md`
+- `docs/benchmark.md`
+- `docs/harness-simplification.md`
+
+作用：
+
+- 判断代码库随 agent session 是变强还是变弱。
+- 用固定任务集比较不同 harness 版本。
+- 定期移除一个 harness 组件，验证它是否仍然承重。

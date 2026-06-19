@@ -22,6 +22,7 @@ description: 开始新项目，或在实现前把 Vibe Harness 加到已有仓�
 - 如果存在，阅读 `docs/product.md`。
 - 如果存在，阅读 `docs/architecture.md`。
 - 如果存在，阅读 `docs/plans/active.md`。
+- 如果存在，阅读 `feature_list.json`。
 - 阅读顶层项目文件，例如 `README.md`、依赖清单或构建文件。
 
 ## 流程
@@ -32,14 +33,17 @@ description: 开始新项目，或在实现前把 Vibe Harness 加到已有仓�
 4. 更新 `docs/product.md`。
 5. 更新 `docs/architecture.md`。
 6. 更新 `docs/plans/active.md`。
-7. 推荐快速验证命令和完整验证命令。
+7. 更新 `feature_list.json`，写入第一条 feature 的 verification。
+8. 推荐初始化命令、快速验证命令、功能状态校验命令、完整验证命令和收尾检查命令。
 
 ## 产出
 
 - 更新后的产品上下文。
 - 更新后的架构上下文。
 - 更新后的 active plan。
+- 更新后的 feature list。
 - 验证计划。
+- 初始化和干净收尾计划。
 - 只保留会实质影响正确性的阻塞问题。
 
 ## 边界

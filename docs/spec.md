@@ -32,6 +32,9 @@ Vibe Harness 的目标是把这些隐性信息放回 repo，让 AI-assisted deve
 | Ratchet | 把一次失败转成更持久的 guardrail，让同类错误更难再次发生。 |
 | Skill | 可复用的 agent operating procedure，定义触发条件、读取材料、流程和产出。 |
 | Handoff | 把当前状态写回 repo，让下一轮不依赖私有聊天上下文。 |
+| Feature List | 机器可读的功能状态面，定义当前范围、验证步骤和完成证据。 |
+| Quality Score | 长期质量快照，用来判断项目随 agent session 是变强还是变弱。 |
+| Clean State | 会话结束前的可验证状态，要求检查可跑、状态已写、临时产物已处理。 |
 
 ## 必要产物
 
@@ -40,7 +43,9 @@ Vibe Harness 的目标是把这些隐性信息放回 repo，让 AI-assisted deve
 - `AGENTS.md`：给 agent 的项目级工作规则。
 - `docs/product.md`：目标、用户、非目标、核心流程和验收标准。
 - `docs/status.md`：当前状态、最近改动、风险、运行过的命令和下一步。
+- `feature_list.json`：功能范围、状态、验证步骤和 evidence。
 - `scripts/check.sh`：快速检查入口。
+- `scripts/clean-state.sh`：会话收尾检查入口。
 
 推荐默认使用 M 级 harness，额外包含：
 
@@ -48,12 +53,15 @@ Vibe Harness 的目标是把这些隐性信息放回 repo，让 AI-assisted deve
 - `docs/plans/active.md`
 - `docs/mistake-log.md`
 - `docs/decisions/`
+- `docs/quality.md`
+- `docs/benchmark.md`
+- `scripts/init-harness.sh`
 - `scripts/verify.sh`
 
 ## 运行循环
 
 ```text
-Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
+Frame -> Initialize -> Slice -> Verify -> Review -> Ratchet -> Clean State -> Handoff
 ```
 
 这条 loop 是 framework 的行为协议，不是口号。每一步都应该留下 repo 内证据：
@@ -61,10 +69,12 @@ Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
 | 阶段 | Repo 证据 |
 | --- | --- |
 | Frame | product、architecture、active plan 被更新。 |
-| Slice | diff 聚焦在一条 thin vertical slice。 |
-| Verify | `scripts/check.sh` 或 `scripts/verify.sh` 的结果被记录。 |
+| Initialize | `scripts/init-harness.sh` 确认项目可运行、可检查、可接手。 |
+| Slice | diff 聚焦在 `feature_list.json` 当前 feature。 |
+| Verify | `scripts/check.sh`、`scripts/validate-feature-list.sh` 或 `scripts/verify.sh` 的结果被记录。 |
 | Review | diff review 找到的问题被修复或记录为风险。 |
 | Ratchet | mistake log、test、script、prompt、ADR 或 skill 被更新。 |
+| Clean State | `scripts/clean-state.sh` 确认没有假完成和常见临时产物。 |
 | Handoff | status 写明当前状态和下一步。 |
 
 ## 成功标准
@@ -73,6 +83,7 @@ Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
 
 - 新 agent 能在十分钟内通过 repo 文件理解目标、边界和当前状态。
 - 每次实现都有明确的 active slice。
+- `feature_list.json` 中最多只有一个 `in_progress`，`passing` 有 evidence。
 - 至少有一个快速检查命令可以运行。
 - 重要失败能被归类并转成 guardrail。
 - session 结束后，下一轮能从 `docs/status.md` 继续。

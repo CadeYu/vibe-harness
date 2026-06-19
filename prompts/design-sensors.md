@@ -12,6 +12,7 @@
 - docs/plans/active.md
 - docs/status.md
 - docs/mistake-log.md
+- feature_list.json
 - scripts/check.sh
 - scripts/verify.sh
 - package/build/test config files
@@ -31,6 +32,9 @@
 - 覆盖的风险
 - 失败后怎么处理
 - 应该放在 check、verify 还是 CI
+
+必须包含：
+- Feature state check：`./scripts/validate-feature-list.sh .`
 
 约束：
 - 不要把所有检查塞进 scripts/check.sh。

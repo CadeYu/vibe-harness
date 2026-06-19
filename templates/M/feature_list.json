@@ -1,0 +1,41 @@
+{
+  "project": "替换成你的项目名",
+  "last_updated": "YYYY-MM-DD",
+  "rules": {
+    "single_active_feature": true,
+    "passing_requires_evidence": true,
+    "do_not_skip_verification": true
+  },
+  "features": [
+    {
+      "id": "slice-001",
+      "priority": 1,
+      "area": "core",
+      "title": "初始化可运行路径",
+      "user_visible_behavior": "全新会话可以安装依赖、运行快速检查，并知道下一步做什么。",
+      "status": "not_started",
+      "verification": [
+        "运行 ./scripts/check.sh。",
+        "运行 ./scripts/validate-feature-list.sh .。",
+        "确认 docs/status.md 已记录当前状态和下一步。"
+      ],
+      "evidence": [],
+      "notes": ""
+    },
+    {
+      "id": "slice-002",
+      "priority": 2,
+      "area": "product",
+      "title": "第一条用户可见行为",
+      "user_visible_behavior": "用户可以完成 docs/product.md 中定义的第一条核心流程。",
+      "status": "not_started",
+      "verification": [
+        "运行 ./scripts/check.sh。",
+        "执行 docs/product.md 中对应验收标准的自动或人工检查。",
+        "把验证证据写入本功能的 evidence。"
+      ],
+      "evidence": [],
+      "notes": ""
+    }
+  ]
+}

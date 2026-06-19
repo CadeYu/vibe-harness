@@ -1,0 +1,30 @@
+{
+  "project": "Vibe Harness",
+  "last_updated": "2026-06-19",
+  "rules": {
+    "single_active_feature": true,
+    "passing_requires_evidence": true,
+    "do_not_skip_verification": true
+  },
+  "features": [
+    {
+      "id": "vh-001",
+      "priority": 1,
+      "area": "framework",
+      "title": "功能状态与生命周期 Harness",
+      "user_visible_behavior": "安装后的项目拥有功能状态校验、初始化检查、干净收尾检查和分层 audit。",
+      "status": "passing",
+      "verification": [
+        "运行 sh tests/test_feature_list.sh。",
+        "运行 sh tests/test_install.sh。",
+        "运行 sh tests/test_audit.sh。",
+        "运行 sh tests/test_consistency.sh。"
+      ],
+      "evidence": [
+        "2026-06-19: sh tests/test_audit.sh && sh tests/test_install.sh && sh tests/test_consistency.sh && sh tests/test_feature_list.sh",
+        "2026-06-19: ./scripts/check.sh && ./scripts/verify.sh && ./scripts/audit.sh ."
+      ],
+      "notes": ""
+    }
+  ]
+}

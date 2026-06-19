@@ -35,15 +35,23 @@ S_TARGET="$TMP_DIR/s"
 mkdir -p "$S_TARGET"
 sh "$ROOT_DIR/scripts/install.sh" "$S_TARGET" --size S >/dev/null
 assert_file "$S_TARGET/AGENTS.md"
+assert_file "$S_TARGET/feature_list.json"
 assert_file "$S_TARGET/docs/product.md"
 assert_file "$S_TARGET/scripts/check.sh"
+assert_file "$S_TARGET/scripts/clean-state.sh"
 
 M_TARGET="$TMP_DIR/m"
 mkdir -p "$M_TARGET"
 sh "$ROOT_DIR/scripts/install.sh" "$M_TARGET" --size M >/dev/null
+assert_file "$M_TARGET/feature_list.json"
 assert_file "$M_TARGET/docs/architecture.md"
 assert_file "$M_TARGET/docs/mistake-log.md"
+assert_file "$M_TARGET/docs/quality.md"
+assert_file "$M_TARGET/docs/benchmark.md"
 assert_file "$M_TARGET/scripts/verify.sh"
+assert_file "$M_TARGET/scripts/validate-feature-list.sh"
+assert_file "$M_TARGET/scripts/init-harness.sh"
+assert_file "$M_TARGET/scripts/clean-state.sh"
 
 L_TARGET="$TMP_DIR/l"
 mkdir -p "$L_TARGET"
@@ -51,6 +59,7 @@ sh "$ROOT_DIR/scripts/install.sh" "$L_TARGET" --size L >/dev/null
 assert_file "$L_TARGET/docs/agents.md"
 assert_file "$L_TARGET/docs/sensors.md"
 assert_file "$L_TARGET/docs/orchestration.md"
+assert_file "$L_TARGET/docs/harness-simplification.md"
 assert_file "$L_TARGET/docs/ratchets/cases.md"
 
 NO_OVERWRITE_TARGET="$TMP_DIR/no-overwrite"

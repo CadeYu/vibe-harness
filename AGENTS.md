@@ -10,6 +10,8 @@
 - `prompts/` 保持短、清楚、可直接粘贴。
 - `skills/` 和 `prompts/` 要分工明确：prompt 是一次性指令，skill 是可复用操作规程。
 - `scripts/check.sh` 和 `scripts/verify.sh` 是一等公民，不是附属品。
+- `feature_list.json` 是范围和完成状态的一等公民，`passing` 必须有 evidence。
+- 框架自身一次只推进一个 feature，避免文档、模板和脚本同时漂移。
 
 ## 文档风格
 
@@ -33,6 +35,12 @@
 ```sh
 sh -n templates/base/scripts/check.sh
 sh -n templates/base/scripts/verify.sh
+sh -n scripts/init-harness.sh
+sh -n scripts/clean-state.sh
+sh -n templates/base/scripts/init-harness.sh
+sh -n templates/base/scripts/clean-state.sh
+sh -n scripts/validate-feature-list.sh
+sh -n templates/base/scripts/validate-feature-list.sh
 sh -n scripts/check-consistency.sh
 sh tests/test_consistency.sh
 ```

@@ -1,0 +1,25 @@
+{
+  "project": "替换成你的项目名",
+  "last_updated": "YYYY-MM-DD",
+  "rules": {
+    "single_active_feature": true,
+    "passing_requires_evidence": true,
+    "do_not_skip_verification": true
+  },
+  "features": [
+    {
+      "id": "slice-001",
+      "priority": 1,
+      "area": "core",
+      "title": "第一条可验证 slice",
+      "user_visible_behavior": "用户可以观察到第一条核心路径已经可用。",
+      "status": "not_started",
+      "verification": [
+        "运行 ./scripts/check.sh。",
+        "人工确认 docs/product.md 里的第一条验收标准已经满足。"
+      ],
+      "evidence": [],
+      "notes": ""
+    }
+  ]
+}

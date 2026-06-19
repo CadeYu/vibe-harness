@@ -10,13 +10,18 @@
 - `docs/product.md`
 - `docs/architecture.md`
 - `docs/plans/active.md`
+- `feature_list.json`
 - `docs/status.md`
 - `docs/mistake-log.md`
 - 当前 git diff 或改动文件
 
+交接前：
+- 运行 `./scripts/clean-state.sh`，或记录为什么暂时不能运行。
+
 更新 `docs/status.md`，包含：
 - 已完成内容
 - 未完成内容
+- 当前 feature 状态和 evidence
 - 已运行命令
 - 已知失败
 - 本轮决策

@@ -29,10 +29,14 @@ Vibe Harness 把这些东西放回 repo：
 | `docs/spec.md` | 想理解这个 framework 到底定义了什么。 |
 | `docs/framework.md` | 想理解 context、workflow、agent、sensor、ratchet、skills 等分层结构。 |
 | `docs/workflow.md` | 日常开发要按哪条 loop 推进。 |
+| `docs/feature-list.md` | 想把功能范围、状态和完成证据变成机器可读状态机。 |
+| `docs/lifecycle.md` | 想理解初始化、实现和干净收尾这三个 session 边界。 |
 | `docs/agents.md` | 想设计 multi-agent 角色和触发条件。 |
 | `docs/orchestration.md` | 想决定什么时候单 agent，什么时候 specialist review。 |
 | `docs/sensors.md` | 要为前端、后端或全栈项目设计检查入口。 |
 | `docs/mistake-ratchet.md` | agent 犯错后要把错误固化成 guardrail。 |
+| `docs/quality.md` | 想持续追踪代码库是在变强还是变弱。 |
+| `docs/benchmark.md` | 想用固定任务集比较 harness 版本和简化实验。 |
 | `docs/interview-playbook.md` | 准备现场 vibe coding 面试。 |
 | `docs/references.md` | 想知道这个 repo 吸收了哪些外部 harness 思路。 |
 
@@ -76,7 +80,7 @@ Frame -> Slice -> Verify -> Review -> Ratchet -> Handoff
 ```sh
 cp -R templates/base/. /path/to/project/
 cd /path/to/project
-chmod +x scripts/check.sh scripts/verify.sh
+chmod +x scripts/*.sh
 ```
 
 然后从 `prompts/start-project.md` 开始，把项目目标、架构边界和第一条 slice 写进：
@@ -85,19 +89,21 @@ chmod +x scripts/check.sh scripts/verify.sh
 docs/product.md
 docs/architecture.md
 docs/plans/active.md
+feature_list.json
 ```
 
 日常开发时按这个顺序走：
 
 1. 用 `prompts/start-project.md` frame 项目。
-2. 用 `prompts/implement-slice.md` 实现一条 slice。
-3. 运行 `scripts/check.sh`。
-4. 用 `prompts/review-diff.md` 做 diff review。
-5. 出错时用 `prompts/solidify-mistake.md` 固化错误。
-6. 风险升高时用 `prompts/dispatch-review.md` 分发 specialist review。
-7. 验证覆盖不足时用 `prompts/design-sensors.md` 设计 sensor matrix。
-8. 需要中途更新状态时用 `prompts/update-status.md`。
-9. 结束前用 `prompts/session-handoff.md` 更新状态。
+2. 运行 `scripts/init-harness.sh`，确认项目能启动、能检查、能被新 session 接手。
+3. 用 `prompts/implement-slice.md` 实现一条 slice。
+4. 运行 `scripts/check.sh` 和 `scripts/validate-feature-list.sh`。
+5. 用 `prompts/review-diff.md` 做 diff review。
+6. 出错时用 `prompts/solidify-mistake.md` 固化错误。
+7. 风险升高时用 `prompts/dispatch-review.md` 分发 specialist review。
+8. 验证覆盖不足时用 `prompts/design-sensors.md` 设计 sensor matrix。
+9. 需要中途更新状态时用 `prompts/update-status.md`。
+10. 结束前运行 `scripts/clean-state.sh`，再用 `prompts/session-handoff.md` 更新状态。
 
 ## 仓库结构
 
@@ -121,8 +127,8 @@ examples             walkthroughs and runnable examples
 
 | Size | 适合场景 | 包含内容 |
 | --- | --- | --- |
-| S | 面试现场、个人小项目、刚起步 repo | `AGENTS.md`、product/status docs、`check.sh` |
-| M | 默认推荐，公开项目或长期个人项目 | S + architecture、active plan、mistake log、ADR、`verify.sh` |
+| S | 面试现场、个人小项目、刚起步 repo | `AGENTS.md`、product/status docs、feature list、`check.sh`、`clean-state.sh` |
+| M | 默认推荐，公开项目或长期个人项目 | S + architecture、active plan、mistake log、ADR、quality/benchmark、`init-harness.sh`、`verify.sh` |
 | L | 团队项目、多 agent、长期维护 | M + agents、orchestration、sensor matrix、PR template、CI、ratchet cases |
 
 从小开始。需要更强约束时再升级，不要一开始把简单项目压重。
@@ -132,7 +138,7 @@ examples             walkthroughs and runnable examples
 一个真正有用的 harness 不只是 prompt 集合，它至少需要三类东西：
 
 - sensors：例如 `scripts/check.sh` 和 `scripts/verify.sh`
-- state：例如 `docs/status.md`、`docs/plans/active.md`、ADR
+- state：例如 `feature_list.json`、`docs/status.md`、`docs/plans/active.md`、ADR
 - ratchets：把失败变成下次更难再犯的护栏
 
 目标不是让 AI “更听话”，而是让项目对错误更敏感。
@@ -186,13 +192,12 @@ cd examples/tiny-python-cli
 这个 repo 自身也有 harness：
 
 ```sh
-sh scripts/check-consistency.sh
-sh tests/test_audit.sh
-sh tests/test_install.sh
-sh tests/test_consistency.sh
+./scripts/check.sh
+./scripts/verify.sh
+./scripts/audit.sh .
 ```
 
-`scripts/check-consistency.sh` 会检查 README、skills index、examples index 和核心文档是否对齐，避免 framework 文档逐渐漂移。
+`scripts/check.sh` 会检查 README、skills index、examples index、核心文档和功能清单是否对齐。`scripts/verify.sh` 会额外运行框架测试，避免 framework 文档、模板和脚本逐渐漂移。
 
 ## 许可证
 
